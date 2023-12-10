@@ -16,12 +16,12 @@ Imports:
     ggplot2,
     stats,
     nnet,
-    gtsummary,
-    usethis
+    gtsummary
 Suggests:
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    devtools
 VignetteBuilder: knitr
 Depends: 
     R (>= 2.10)

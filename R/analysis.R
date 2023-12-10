@@ -6,6 +6,7 @@
 #' used in analysis
 #' @return Regression analytical statistics.
 #' @importFrom nnet multinom
+#' @importFrom stats pnorm as.formula
 #' @export
 analysis <- function(variables, adsl) {
   formula <- as.formula(

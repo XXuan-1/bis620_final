@@ -12,9 +12,9 @@ test_that("The summary_...() errors when no ATRT column.",
           }
 )
 
-test_that("The summary_tbl() returns a tbl_summary object.",
+test_that("The summary_tbl() returns a list object.",
           {
             x <- summary_tbl(adsl)
-            expect_type(x, "tbl_summary")
+            expect_type(x, "list")
           }
 )

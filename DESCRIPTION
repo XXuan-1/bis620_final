@@ -18,7 +18,8 @@ Imports:
     nnet,
     gtsummary,
     haven,
-    purrr
+    purrr,
+    usethis
 Suggests:
     knitr,
     rmarkdown,

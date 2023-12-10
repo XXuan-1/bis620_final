@@ -24,6 +24,7 @@
 #'   \item{DIAGTYPE}{Primary Tumor Diagnosis}
 #' }
 #' @importFrom usethis use_data
+#' @importFrom haven read_sas
 #' @importFrom purrr map
 #' @export
 "adsl"

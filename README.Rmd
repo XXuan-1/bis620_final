@@ -1,0 +1,50 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# bis620_final
+
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/XXuan-1/bis620_final/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/XXuan-1/bis620_final/actions/workflows/R-CMD-check.yaml)
+[![test-coverage](https://github.com/XXuan-1/bis620_final/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/XXuan-1/bis620_final/actions/workflows/test-coverage.yaml)
+<!-- badges: end -->
+
+The package bis620.2023 is designed to offer an regression analysis based on a research question with more details in my_vig.Rmd under vignettes/.
+
+## Installation
+
+You can install the development version of bis620_final from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("XXuan-1/bis620_final")
+```
+
+## Example
+
+Here are several snapshots of the displays under different selections.
+
+```{r example}
+library(bis620_final)
+summary_ecog_trt(adsl)
+```
+
+```{r example}
+summary_tbl(adsl)
+```
+
+```{r example}
+analysis("SEX + B_ECOG + B_WEIGHT",adsl)
+```
+

@@ -3,7 +3,7 @@
 #' grouped by treatment.
 #' @param adsl the dataset.
 #' @return Violin plot including summary stats.
-#' @importFrom ggplot2 geom_violin geom_boxplot theme_classic
+#' @importFrom ggplot2 geom_violin geom_boxplot theme_classic aes
 #' @importFrom dplyr select
 #' @export
 summary_age_trt <- function(adsl) {

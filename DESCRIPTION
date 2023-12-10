@@ -16,7 +16,8 @@ Imports:
     ggplot2,
     devtools,
     nnet,
-    gtsummary
+    gtsummary,
+    testthat
 Suggests:
     knitr,
     rmarkdown,

@@ -7,7 +7,7 @@ Author: Jiaxuan Sun, Xinzhi Zhang
 Maintainer: Jiaxuan Sun <jiaxuan.sun@yale.edu>
 Description: Evaluate the efficacy of combining Panitumumab with FOLFOX versus 
     using FOLFOX alone as an initial treatment for metastatic colorectal cancer.
-License: GPL (>= 2)
+License: file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3

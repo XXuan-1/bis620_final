@@ -1,0 +1,97 @@
+---
+title: "bis620"
+author: "Jiaxuan Sun, Xinzhi Zhang"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{bis620}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\UseRaw{}
+---
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+#### member
+
+Jiaxuan Sun (js 4626)
+
+Xinzhi Zhang (xz634)
+
+### Background and Motivation
+
+Studying Panitumumab's treatment effect is important to enhance targeted cancer therapy, advance personalized medicine, and optimize treatment efficacy and safety for colorectal cancer patients. Our study aims to evaluate the side-efficacy of combining Panitumumab with FOLFOX versus using FOLFOX alone as an initial treatment for metastatic colorectal cancer. This investigation is vital because treatments can have different effectiveness levels based on individual patient characteristics. By considering confounders such as sex, age, and weight, we intend to obtain a nuanced understanding of treatment side-effect. These factors are known to influence health responses and treatment metabolism, potentially affecting the treatment's effectiveness. Understanding these relationships will enable more personalized and effective healthcare strategies, ensuring that treatment plans are optimized for individual patient profiles, ultimately improving patient care and outcomes.
+
+### Research Question
+
+Does the panitumumab treatment along with FOLFOX yield a more favorable Eastern Cooperative Oncology Group Performance Status than FOLFOX alone, when adjusted for potential confounders such as age, sex, and weight?
+
+### Data Cleaning and Exploration
+
+We will utilize data from the Panitumumab clinical trial, which includes demographic details, clinical characteristics, types of treatments, and various other information about the enrolled patients.
+
+#### Basic statistics of variables used in our analysis
+
+```{r}
+devtools::load_all()
+library(bis620final)
+summary_tbl(adsl)
+```
+
+#### Pairwise distribution between weight and sex
+
+```{r}
+summary_weight_sex(adsl)
+```
+
+#### Pairwise distribution between weight and treatment
+
+```{r}
+summary_weight_trt(adsl)
+```
+
+#### Pairwise distribution between age and sex
+
+```{r}
+summary_age_sex(adsl)
+```
+
+#### Pairwise distribution between age and treatment
+
+```{r}
+summary_age_trt(adsl)
+```
+
+Above 4 violin plots show the distribution of the data across various values. Higher frequency of data points is represented by wider sections of the violin plot, with the width of the plot at any given height corresponding to the approximate number of data points at that value. Also by looking at the range and relative abundance, we could tell that our con-founders distributed evenly between different categories, which is good for analyzing.
+
+#### Pairwise distribution between performance status and treatment
+
+```{r}
+summary_ecog_trt(adsl)
+```
+
+This plot represents the distribution of our response variables grouped by our main effect predictor.
+
+### Analysis 
+
+Null Hypothesis (H0): Patients' performance status is unaffected by the "Panitumumab + FOLFOX" treatment. This indicates that any observed variation in performance status across treatment groups is not the result of the treatment effect, but rather the result of random chance. Stated otherwise, the multi-nomial logistic regression model's treatment coefficients are equal to zero.
+
+Alternative Hypothesis (H1): Patients' performance status is impacted by the "Panitumumab + FOLFOX" treatment. This implies that the therapy is related to the observed variations in performance status rather than being the result of chance. In the multi-nomial logistic regression model, the treatment coefficients are not equal to zero.
+
+$H_0$: ${\beta_{treatment}} = 0$ for all levels of the performance status.
+$H_0$: ${\beta_{treatment}} \neq 0$ for at least one level of the performance status.
+
+```{r}
+analysis(c("SEX + B_WEIGHT + AGE"), adsl)
+```
+
+### Interpretation
+
+The regression analysis model summary table and related derived p-value for "ATRT Panitumumab + FOLFOX" are shown here. The p-value is 0. It implies that, within the model, this variable has a high degree of statistical significance. In actuality, a p-value of 0 just indicates that it rounds down to zero at the precision level of the software's output since it is so little.
+
+With respect to the reference category, the treatment is probably a very strong predictor of the result variable's categories given the large coefficients and essentially zero p-value. It implies that, in comparison to the reference group, the treatment has a significant and statistically significant impact on the likelihood that a patient would fall into each of the outcome categories ("Fully active," "In bed less than 50% of the time," and "Symptoms but ambulatory").
+
+The fact that the p-value is 0 implies that the likelihood of observing such an extreme effect size, given that there is no true effect (null hypothesis), is extremely low. Therefore, we would reject the null hypothesis in favor of the alternative that the treatment does have an effect on the outcome.

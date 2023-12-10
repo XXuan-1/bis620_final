@@ -37,6 +37,7 @@ We will utilize data from the Panitumumab clinical trial, which includes demogra
 
 ```{r}
 devtools::load_all()
+data("adsl")
 library(bis620final)
 summary_tbl(adsl)
 ```

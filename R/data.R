@@ -1,7 +1,7 @@
-#' @title dataset
-#' @name adsl
-#' @docType data
-#' @keywords data
+#' @title A dataset for ADSL
+#' @description Panitumumab Randomized Trial In Combination With Chemotherapy
+#' for Metastatic Colorectal Cancer to Determine Efficacy
+#' @format ## A tibble with 935 rows and 19 columns:
 #' \describe{
 #'   \item{SUBJID}{Subject ID}
 #'   \item{TRT}{Assigned Treatment}
@@ -23,4 +23,4 @@
 #'   \item{B_METNAM}{Number of BL Metas Site}
 #'   \item{DIAGTYPE}{Primary Tumor Diagnosis}
 #' }
-NULL
+"adsl"

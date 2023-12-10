@@ -16,10 +16,7 @@ Imports:
     ggplot2,
     stats,
     nnet,
-    gtsummary,
-    haven,
-    purrr,
-    usethis
+    gtsummary
 Suggests:
     knitr,
     rmarkdown,
